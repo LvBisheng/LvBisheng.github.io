@@ -5,8 +5,12 @@
         "details":
         [
             {
-                "appID":"Y4F797T4V3.com.paobank.mobilebank.personal.dev",
+                "appID":"BKSHGM6852.com.apyfc.neighbor2",
                 "paths":["*"]
+            },
+            {
+                "appID":"BKSHGM6852.com.apyfc.neighbor3",
+                "paths":["/archives/"]
             }
         ]
     }
