@@ -5,6 +5,10 @@
         "details":
         [
 	   {
+                "appID":"BKSHGM6852.com.apyfc.neighbor5",
+                "paths":["/hello/world"]
+            },
+	   {
                 "appID":"BKSHGM6852.com.apyfc.neighbor4",
                 "paths":["/goods/*"]
             },
