@@ -4,13 +4,17 @@
         "apps":[],
         "details":
         [
+	   {
+                "appID":"BKSHGM6852.com.apyfc.neighbor1",
+                "paths":["/goods/*"]
+            },
             {
                 "appID":"BKSHGM6852.com.apyfc.neighbor2",
                 "paths":["*"]
             },
             {
                 "appID":"BKSHGM6852.com.apyfc.neighbor3",
-                "paths":["/archives/"]
+                "paths":["/archives/*"]
             }
         ]
     }
