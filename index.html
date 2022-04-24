@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8">
@@ -25,4 +25,36 @@ function myFunction(){
 </script>
 
 </body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang=zh-HK>
+
+<head>
+    <meta charset=utf-8>
+    <meta http-equiv=X-UA-Compatible content="IE=edge">
+    <meta name=viewport content="width=device-width,user-scalable=no,initial-scale=1,minimum-scale=1,maximum-scale=1">
+    <title>PAOB</title>
+    <style>
+    
+    </style>
+    <script>
+        function openApp() {
+            window.location.href = 'paobretail://grantconsent';
+        }
+        function dowanLoadApp() {
+            window.location.href = 'https://paob-cicd-uat.jryzt.com/appdownload/android/paob_retail_860_android_uat3.apk';
+        }
+    </script>
+</head>
+
+<body>
+    <div class="logo">
+        <img src="https://paobank-uat.jryzt.com/asset/images/home/appicon.svg">
+    </div>
+    <button onclick="dowanLoadApp()">下载APP</button>
+    <button onclick="openApp()">已安装，打开APP</button>
+</body>
+
 </html>
