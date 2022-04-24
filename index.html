@@ -1,51 +1,50 @@
-<!-- <!DOCTYPE html>
-<html>
-<head>
-<meta charset="utf-8">
-<title>菜鸟教程(runoob.com)</title>
-</head>
-<body>
-
-<p>点击按钮，显示确认框。</p>
-<button onclick="myFunction()">点我</button>
-<p id="demo"></p>
-<script>
-function myFunction(){
-	var x;
-	var r=confirm("按下按钮!");
-	if (r==true){
-		x="你按下了\"确定\"按钮!";
-        window.location.href = 'paobretail://grantconsent';
-	}
-	else{
-		x="你按下了\"取消\"按钮!";
-	}
-	document.getElementById("demo").innerHTML=x;
-}
-</script>
-
-</body>
-</html> -->
-
-
-<!DOCTYPE html>
+<!Doctype html>
 <html lang=zh-HK>
 
 <head>
-    <meta charset=utf-8>
-    <meta http-equiv=X-UA-Compatible content="IE=edge">
-    <meta name=viewport content="width=device-width,user-scalable=no,initial-scale=1,minimum-scale=1,maximum-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>PAOB</title>
     <style>
-    
+
     </style>
     <script>
+
+        var $_GET = (function () {
+            var url = window.document.location.href.toString();
+            var u = url.split("?");
+            if (typeof (u[1]) == "string") {
+                u = u[1].split("&");
+                var get = {};
+                for (var i in u) {
+                    var j = u[i].split("=");
+                    get[j[0]] = j[1];
+                }
+                return get;
+            } else {
+                return {};
+            }
+        })();
+
         function openApp() {
-            window.location.href = 'paobretail://grantconsent';
+            var r = confirm("确认打开APP?");
+            if (r == true) {
+                obj = $_GET['pay_req_obj'];
+                back = $_GET['callback'];
+                var deepLink = "paobretail://retail/merchantpay?"
+                deepLink += "pay_req_obj=" + obj;
+                if (back != null && back.length > 0) {
+                    deepLink += "&callback=" + back;
+                }
+                window.location.href = deepLink;
+                document.getElementById("test").innerHTML = deepLink;
+            }
         }
         function dowanLoadApp() {
             window.location.href = 'https://paob-cicd-uat.jryzt.com/appdownload/android/paob_retail_860_android_uat3.apk';
         }
+
+
     </script>
 </head>
 
@@ -53,8 +52,13 @@ function myFunction(){
     <div class="logo">
         <img src="https://paobank-uat.jryzt.com/asset/images/home/appicon.svg">
     </div>
-    <button onclick="dowanLoadApp()">下载APP</button>
-    <button onclick="openApp()">已安装，打开APP</button>
+    <div>
+        <button onclick="dowanLoadApp()">下载APP</button>
+    </div>
+    <div>
+        <button onclick="openApp()">已安装，打开APP</button>
+    </div>
+    <p id="test"></p>
 </body>
 
 </html>
