@@ -41,9 +41,15 @@
             }
         }
         function dowanLoadApp() {
-            window.location.href = 'https://paob-cicd-uat.jryzt.com/appdownload/android/paob_retail_860_android_uat3.apk';
+            var u = navigator.userAgent;
+            var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Linux') > -1; // 安卓终端
+            var isIOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+            if(isIOS) {
+                window.location.href = "https://apps.apple.com/hk/app/apple-store/id1505282324?l=en"
+            } else {
+                window.location.href = "https://www.paob.com.hk/en/index.html#download";
+            }
         }
-
     </script>
 </head>
 
