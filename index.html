@@ -1,16 +1,12 @@
-<!Doctype html>
-<html lang=zh-HK>
+<html>
+    <head>
+        <meta/>
+        <script src="index.umd.js"></script>
+    </head>
+    <body>
+        <script>
 
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>PAOB</title>
-    <style>
-
-    </style>
-    <script>
-
-        var $_GET = (function () {
+var $_GET = (function () {
             var url = window.document.location.href.toString();
             var u = url.split("?");
             if (typeof (u[1]) == "string") {
@@ -26,52 +22,40 @@
             }
         })();
 
-        function openApp() {
-            obj = $_GET['pay_req_obj'];
+const options = {
+  scheme: {
+    protocol: 'paobretail',
+  },
+  intent: {
+    package: 'com.paobank.mobilebank.personal.dev',
+    scheme: 'paobretail',
+  },
+  appstore: 'https://apps.apple.com/hk/app/apple-store/id1505282324?l=en',
+  yingyongbao: 'https://www.paob.com.hk/en/index.html#download',
+  // fallback: 'https://oia.zhihu.com/',
+  timeout: 2000,
+};
+const callLib = new CallApp(options);
+
+function test(){
+
+  obj = $_GET['pay_req_obj'];
                 back = $_GET['callback'];
                 var deepLink = "paobretail://retail/merchantpay?"
                 deepLink += "pay_req_obj=" + obj;
                 if (back != null && back.length > 0) {
                     deepLink += "&callback=" + back;
-                }
-                window.location.href = deepLink;
-                document.getElementById("test").innerHTML = deepLink;
-        }
+                }                
+callLib.open({
+  param: {},
+  path: deepLink,
+});
+}
 
-        function alertAndOpen() {
-            var r = confirm("确认打开APP?");
-            if(true == r) {
-                openApp();
-            }
-        }
+setTimeout("test()", 500);
 
-        function dowanLoadApp() {
-            var u = navigator.userAgent;
-            var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Linux') > -1; // 安卓终端
-            var isIOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
-            if(isIOS) {
-                window.location.href = "https://apps.apple.com/hk/app/apple-store/id1505282324?l=en"
-            } else {
-                window.location.href = "https://www.paob.com.hk/en/index.html#download";
-            }
-        }
-        // 一进来页面就踢起app（ps:好像就iOS有用）
-       setTimeout("openApp()", 500);
-    </script>
-</head>
+        </script>
 
-<body>
-    <div class="logo">
-        <img src="https://paobank-uat.jryzt.com/asset/images/home/appicon.svg">
-    </div>
-    <div>
-        <button onclick="dowanLoadApp()">下载APP</button>
-    </div>
-    <div>
-        <button onclick="alertAndOpen()">已安装，打开APP</button>
-    </div>
-    <p id="test"></p>
-</body>
-
+      <button onclick="test()">按钮</button>
+    </body>
 </html>
-
