@@ -1,3 +1,33 @@
+Skip to content
+Search or jump to…
+Pull requests
+Issues
+Marketplace
+Explore
+ 
+@LvBisheng 
+LvBisheng
+/
+LvBisheng.github.io
+Public
+Code
+Issues
+Pull requests
+Actions
+Projects
+Wiki
+Security
+Insights
+Settings
+LvBisheng.github.io/index.html
+@LvBisheng
+LvBisheng Update index.html
+…
+Latest commit 30b12e4 8 minutes ago
+ History
+ 1 contributor
+70 lines (64 sloc)  2.17 KB
+   
 <!Doctype html>
 <html lang=zh-HK>
 
@@ -27,9 +57,7 @@
         })();
 
         function openApp() {
-            var r = confirm("确认打开APP?");
-            if (r == true) {
-                obj = $_GET['pay_req_obj'];
+            obj = $_GET['pay_req_obj'];
                 back = $_GET['callback'];
                 var deepLink = "paobretail://retail/merchantpay?"
                 deepLink += "pay_req_obj=" + obj;
@@ -38,8 +66,15 @@
                 }
                 window.location.href = deepLink;
                 document.getElementById("test").innerHTML = deepLink;
+        }
+
+        function alertAndOpen() {
+            var r = confirm("确认打开APP?");
+            if(true == r) {
+                openApp();
             }
         }
+
         function dowanLoadApp() {
             var u = navigator.userAgent;
             var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Linux') > -1; // 安卓终端
@@ -62,9 +97,10 @@
         <button onclick="dowanLoadApp()">下载APP</button>
     </div>
     <div>
-        <button onclick="openApp()">已安装，打开APP</button>
+        <button onclick="alertAndOpen()">已安装，打开APP</button>
     </div>
     <p id="test"></p>
 </body>
 
 </html>
+
