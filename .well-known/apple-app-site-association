@@ -1,0 +1,31 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "Y4F797T4V3.com.paobank.mobilebank.enterprise",
+        "paths": [
+          "consent/grant/*"
+        ]
+      },
+      {
+        "appID": "Y4F797T4V3.com.paobank.mobilebank.enterprise.dev",
+        "paths": [
+          "consent/grant/*"
+        ]
+      },
+      {
+        "appID": "Y4F797T4V3.com.paobank.mobilebank.personal",
+        "paths": [
+          "consent/grant/*"
+        ]
+      },
+      {
+        "appID": "Y4F797T4V3.com.paobank.mobilebank.personal.dev",
+        "paths": [
+          "consent/grant/*"
+        ]
+      }
+    ]
+  }
+}
