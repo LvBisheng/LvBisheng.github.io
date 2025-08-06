@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PAOB</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+      .button {
+        margin: 0 auto;
+        width: 343px;
+        height: 40px;
+        background: #f05a23;
+        border-radius: 245px;
+        border: 0;
+        color: #fff;
+        font-size: 16px;
+        text-align: center;
+        font-weight: 600;
+      }
+      body {
+        background: #e2aa96;;
+        background-size: 100%;
+      }
+    </style>
+    <script>
+      // 使用URLSearchParams解析URL参数
+      const getParam = new URLSearchParams(window.location.search);
+
+      // 设备检测函数
+      function isMobileOS() {
+        const userAgent = navigator.userAgent;
+        return {
+          isAndroid: /Android|Linux/.test(userAgent),
+          isIOS: /iPhone|iPad|iPod|Mac OS X/.test(userAgent)
+        };
+      }
+
+      // 打开App的函数
+      function openApp() {
+        const obj = getParam.get("pay_req_obj");
+        const back = getParam.get("callback");
+        if (obj) {
+          let deepLink = "paobretail://merchantpay?";
+          deepLink += "pay_req_obj=" + encodeURIComponent(obj);
+          if (back && back.length > 0) {
+            deepLink += "&callback=" + encodeURIComponent(back);
+          }
+          window.location.href = deepLink;
+        }
+      }
+
+      // 弹窗提示并打开App
+      function alertAndOpen() {
+        const obj = getParam.get("pay_req_obj");
+        if (obj) {
+          // 弹窗提示用户确认打开App
+          const r = confirm("确认打开APP?\nOpen PAOB App?");
+          if (r) {
+            openApp();
+          }
+        }
+        setTimeout(downloadApp, 2000);
+      }
+
+      // 判断设备并跳转下载页面
+      function downloadApp() {
+        const { isIOS } = isMobileOS();
+        if (isIOS) {
+          window.location.href = "https://itunes.apple.com/cn/app/id1514449260?mt=8";
+        } else {
+          window.location.href = "https://paob.com.hk/en/index.html#download";
+        }
+      }
+
+      // 页面加载后500毫秒尝试打开App
+      setTimeout(openApp, 500);
+    </script>
+  </head>
+
+  <body style="text-align: center; padding-top: 30%">
+    <div style="padding-bottom: 25%" class="logo">
+      <img width="100" height="100" src="../img/sme_icon.png" />
+    </div>
+    <div style="padding-bottom: 25%">
+      <button class="button" id="openAppButton">Open PAObank SME</button>
+    </div>
+
+    <script>
+      // 绑定按钮点击事件
+      document.getElementById("openAppButton").addEventListener("click", alertAndOpen);
+    </script>
+  </body>
+</html>
