@@ -7,7 +7,9 @@
       "namespace": "android_app",
       "package_name": "hk.com.paob.app.enterprise",
       "sha256_cert_fingerprints": [
-        "F5:8E:61:65:E8:12:B7:3D:6F:DE:A5:47:4B:EE:D4:A4:E8:C9:5C:A9:F4:E2:B3:06:DF:46:DA:7D:6A:1D:1F:7D"
+        "18:18:87:41:DC:2A:80:4F:2A:CD:51:56:83:35:FA:4C:7B:48:73:B3:BE:01:25:33:BA:1F:4B:97:19:08:E3:C5",
+        "F5:8E:61:65:E8:12:B7:3D:6F:DE:A5:47:4B:EE:D4:A4:E8:C9:5C:A9:F4:E2:B3:06:DF:46:DA:7D:6A:1D:1F:7D",
+        "1F:F9:AE:03:B4:94:E1:EC:A1:4E:75:86:D7:E8:3B:4E:60:94:C5:BD:28:07:F1:FE:4C:AA:83:14:7F:5F:9A:4F"
       ]
     }
   }
