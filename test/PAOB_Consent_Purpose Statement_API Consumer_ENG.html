@@ -9,7 +9,10 @@
     <meta name="ProgId" content="Word.Document" />
     <meta name="Generator" content="Microsoft Word 14" />
     <meta name="Originator" content="Microsoft Word 14" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
     <link
       rel="File-List"
       href="CLEAN_PAOB_Consent_Purpose Statement_API Consumer_ENG.files/filelist.xml"
@@ -1727,6 +1730,20 @@
           ></w:LsdException> </w:LatentStyles></xml
     ><![endif]-->
     <style>
+      /* 在现有的style标签内添加这些规则 */
+      span[style*="font-style: italic"] span,
+      i span {
+        word-wrap: break-word !important;
+        word-break: break-all !important;
+        white-space: normal !important;
+      }
+
+      /* 强制所有文本元素适应屏幕宽度 */
+      * {
+        box-sizing: border-box;
+        max-width: 100%;
+      }
+
       @font-face {
         font-family: "Times New Roman";
       }
