@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>二维码生成器</title>
+    <!-- 
+        使用的第三方库:
+        1. qrcode.js - 用于生成二维码的核心库
+           GitHub地址: https://github.com/davidshimjs/qrcodejs
+           CDN地址: https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js
+    -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-top: 0;
+        }
+        .main-layout {
+            display: flex;
+            gap: 30px;
+        }
+        .editor-section {
+            flex: 1;
+        }
+        .preview-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .input-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        textarea {
+            height: 100px;
+            resize: vertical;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            display: block;
+            margin: 20px auto;
+            width: 200px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        #qrcode {
+            text-align: center;
+            margin: 20px 0;
+            min-height: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        #qrcode img {
+            margin: 0 auto;
+        }
+        #result-container {
+            text-align: center;
+            margin-top: 30px;
+        }
+        #result-image {
+            max-width: 100%;
+            border: 1px solid #ddd;
+            display: none;
+        }
+        canvas {
+            display: none;
+        }
+        .description {
+            text-align: center;
+            margin: 10px auto 0;
+            font-weight: bold;
+            word-wrap: break-word;
+            word-break: break-word;
+            padding: 0 10px;
+            max-width: 240px;
+        }
+        .hint {
+            font-size: 12px;
+            color: #666;
+            margin-top: 5px;
+        }
+        .generate-btn {
+            width: 100%;
+            max-width: 200px;
+        }
+        .save-btn {
+            width: 100%;
+            max-width: 200px;
+        }
+        .placeholder-text {
+            color: #999;
+            font-size: 16px;
+            text-align: center;
+            padding: 20px;
+        }
+        .preview-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        @media (max-width: 768px) {
+            .main-layout {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        页面功能说明:
+        1. 用户在左侧输入需要生成二维码的文本内容和描述信息
+        2. 点击"生成二维码"按钮后，在右侧预览区显示二维码和描述
+        3. 点击"保存为图片"按钮可将二维码和描述保存为PNG图片
+        
+        技术实现原理:
+        1. 使用qrcode.js库生成二维码图像
+        2. 通过HTML5 Canvas技术将二维码和描述文字合成一张图片
+        3. 使用data URL技术实现图片下载功能
+        4. 采用响应式布局，适配不同屏幕尺寸
+    -->
+    <div class="container">
+        <h1>二维码生成器</h1>
+        
+        <div class="main-layout">
+            <div class="editor-section">
+                <div class="input-group">
+                    <label for="text">输入文字内容：</label>
+                    <textarea id="text" placeholder="例如：https://www.example.com 或者 一段文本内容"></textarea>
+                    <div class="hint">可以输入网址、文本等内容，内容越多二维码越复杂</div>
+                </div>
+                
+                <div class="input-group">
+                    <label for="description">二维码描述：</label>
+                    <textarea id="description" placeholder="例如：公司官网二维码 或 产品介绍"></textarea>
+                    <div class="hint">描述信息会显示在二维码下方，支持多行文本</div>
+                </div>
+                
+                <button class="generate-btn" onclick="generateQRCode()">生成二维码</button>
+            </div>
+            
+            <div class="preview-section">
+                <div class="preview-title">二维码预览区</div>
+                <div id="qrcode">
+                    <div class="placeholder-text">
+                        请在左侧输入内容<br>
+                        点击"生成二维码"按钮<br>
+                        二维码将在此处显示
+                    </div>
+                </div>
+                
+                <div id="result-container">
+                    <button class="save-btn" onclick="downloadImage()" disabled>保存为图片</button>
+                    <img id="result-image" alt="生成的二维码图片">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 用于生成高分辨率图片的隐藏Canvas -->
+    <canvas id="canvas"></canvas>
+    
+    <script>
+        // 全局变量，保存当前生成的二维码对象
+        let qrCode = null;
+        
+        /**
+         * 生成二维码函数
+         * 功能：根据用户输入的文本内容生成二维码，并在预览区显示
+         */
+        function generateQRCode() {
+            const text = document.getElementById('text').value;
+            const description = document.getElementById('description').value;
+            
+            // 检查输入内容是否为空
+            if (!text) {
+                alert('请输入文字内容');
+                return;
+            }
+            
+            // 清空之前的二维码
+            const qrcodeDiv = document.getElementById('qrcode');
+            qrcodeDiv.innerHTML = '';
+            
+            // 使用qrcode.js生成二维码
+            // 参数说明：
+            // - text: 二维码内容
+            // - width/height: 二维码尺寸(300x300像素，保证清晰度)
+            // - colorDark: 二维码点的颜色(黑色)
+            // - colorLight: 二维码背景色(白色)
+            // - correctLevel: 纠错级别(H级别，可纠正30%的错误)
+            qrCode = new QRCode(qrcodeDiv, {
+                text: text,
+                width: 300,
+                height: 300,
+                colorDark: "#000000",
+                colorLight: "#ffffff",
+                correctLevel: QRCode.CorrectLevel.H
+            });
+            
+            // 如果用户输入了描述信息，则在二维码下方添加描述文字
+            if (description) {
+                const descElement = document.createElement('div');
+                descElement.className = 'description';
+                descElement.textContent = description;
+                descElement.style.maxWidth = '340px';
+                qrcodeDiv.appendChild(descElement);
+            }
+            
+            // 启用保存按钮
+            document.querySelector('.save-btn').disabled = false;
+        }
+        
+        /**
+         * 下载图片函数
+         * 功能：将二维码和描述文字合成一张高分辨率图片并下载
+         * 文件名格式：qrcode_YYYYMMDD_HHMMSS.png
+         */
+        function downloadImage() {
+            // 检查是否已生成二维码
+            if (!qrCode) {
+                alert('请先生成二维码');
+                return;
+            }
+            
+            const text = document.getElementById('text').value;
+            const description = document.getElementById('description').value;
+            
+            // 再次检查输入内容
+            if (!text) {
+                alert('请输入文字内容');
+                return;
+            }
+            
+            // 设置图片缩放比例(2倍)，提高图片清晰度
+            const scale = 2;
+            const qrSize = 300;  // 二维码尺寸
+            const padding = 20;   // 图片边距
+            const maxWidth = qrSize; // 文字最大宽度
+            
+            // 计算描述文字所需高度
+            let descHeight = 0;
+            if (description) {
+                descHeight = calculateTextHeight(description, maxWidth, 16) + 20;
+            }
+            
+            // 设置canvas尺寸
+            const canvas = document.getElementById('canvas');
+            const ctx = canvas.getContext('2d');
+            canvas.width = (qrSize + padding * 2) * scale;
+            canvas.height = (qrSize + padding * 2 + descHeight) * scale;
+            
+            // 缩放整个绘图上下文
+            ctx.scale(scale, scale);
+            
+            // 设置绘图质量
+            ctx.imageSmoothingEnabled = true;
+            ctx.imageSmoothingQuality = 'high';
+            
+            // 清空画布并设置背景为白色
+            ctx.fillStyle = '#ffffff';
+            ctx.fillRect(0, 0, qrSize + padding * 2, qrSize + padding * 2 + descHeight);
+            
+            // 获取二维码图像元素
+            const qrImg = document.querySelector('#qrcode img');
+            if (!qrImg) {
+                alert('无法获取二维码图像');
+                return;
+            }
+            
+            // 将二维码绘制到canvas上
+            ctx.drawImage(qrImg, padding, padding, qrSize, qrSize);
+            
+            // 如果有描述文字，则绘制描述文字
+            if (description) {
+                ctx.font = 'bold 16px Arial';
+                ctx.fillStyle = '#000000';
+                ctx.textAlign = 'center';
+                wrapText(ctx, description, (qrSize + padding * 2) / 2, qrSize + padding + 20, maxWidth, 20);
+            }
+            
+            // 恢复绘图变换矩阵
+            ctx.setTransform(1, 0, 0, 1, 0, 0);
+            
+            // 生成带时间戳的文件名
+            const now = new Date();
+            const timestamp = `${now.getFullYear()}${String(now.getMonth() + 1).padStart(2, '0')}${String(now.getDate()).padStart(2, '0')}_${String(now.getHours()).padStart(2, '0')}${String(now.getMinutes()).padStart(2, '0')}${String(now.getSeconds()).padStart(2, '0')}`;
+            const filename = `qrcode_${timestamp}.png`;
+            
+            // 创建下载链接并触发下载
+            const link = document.createElement('a');
+            link.download = filename;
+            link.href = canvas.toDataURL('image/png', 1.0); // 使用最高质量
+            link.click();
+        }
+        
+        /**
+         * 计算文字在指定宽度下的高度
+         * @param {string} text - 要计算的文字
+         * @param {number} maxWidth - 最大宽度
+         * @param {number} fontSize - 字体大小
+         * @returns {number} 文字所占高度
+         */
+        function calculateTextHeight(text, maxWidth, fontSize) {
+            const words = text.split('');
+            let line = '';
+            let lines = 1;
+            const lineHeight = fontSize + 4;
+            
+            // 创建临时canvas来测量文字宽度
+            const tempCanvas = document.createElement('canvas');
+            const tempCtx = tempCanvas.getContext('2d');
+            tempCtx.font = `bold ${fontSize}px Arial`;
+            
+            for (let i = 0; i < words.length; i++) {
+                const testLine = line + words[i];
+                const metrics = tempCtx.measureText(testLine);
+                
+                if (metrics.width > maxWidth && i > 0) {
+                    lines++;
+                    line = words[i];
+                } else {
+                    line = testLine;
+                }
+            }
+            
+            return lines * lineHeight;
+        }
+        
+        /**
+         * 文字换行处理函数
+         * @param {CanvasRenderingContext2D} context - Canvas绘图上下文
+         * @param {string} text - 要绘制的文字
+         * @param {number} x - 文字绘制的x坐标
+         * @param {number} y - 文字绘制的y坐标
+         * @param {number} maxWidth - 文字最大宽度
+         * @param {number} lineHeight - 行高
+         */
+        function wrapText(context, text, x, y, maxWidth, lineHeight) {
+            const words = text.split('');
+            let line = '';
+            let currentY = y;
+            
+            for (let i = 0; i < words.length; i++) {
+                const testLine = line + words[i];
+                const metrics = context.measureText(testLine);
+                
+                if (metrics.width > maxWidth && i > 0) {
+                    context.fillText(line, x, currentY);
+                    line = words[i];
+                    currentY += lineHeight;
+                } else {
+                    line = testLine;
+                }
+            }
+            context.fillText(line, x, currentY);
+        }
+    </script>
+</body>
+</html>
