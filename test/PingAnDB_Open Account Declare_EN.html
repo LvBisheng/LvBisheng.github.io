@@ -1,23 +1,129 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta charset="utf-8">
-<title>HTML Editor - LDDGO.NET</title>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5.1/build/styles/default.min.css" type="text/css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <style>
+        /* 针对移动端 Webview 的视觉优化 */
+        html {
+            /* 阻止 iOS 设备在横屏时自动放大字体 */
+            -webkit-text-size-adjust: 100%;
+            text-size-adjust: 100%;
+        }
+
+        body {
+            font-family: -apple-system, "SF Pro Text", "PingFang SC", sans-serif;
+            font-size: 15px;
+            line-height: 1.65;
+            color: #333;
+            padding: 25px 20px;
+            margin: 0;
+            background: #fff;
+            /* 英文排版核心优化 */
+            word-wrap: break-word;
+            word-break: normal;
+            hyphens: auto;
+            text-align: justify;
+            text-justify: inter-character;
+        }
+
+        body>*:first-child {
+            margin-top: 0 !important;
+        }
+
+        p {
+            margin: 0;
+        }
+
+        h1,
+        h2,
+        h3 {
+            margin: 1.5em 0 0.8em;
+            font-weight: bold;
+            line-height: 1.3;
+            color: #000;
+        }
+
+        /* 缩进样式定义 - 每级缩进 2em (符合中文排版习惯) */
+        .ql-indent-1 {
+            padding-left: 2em;
+        }
+
+        .ql-indent-2 {
+            padding-left: 4em;
+        }
+
+        .ql-indent-3 {
+            padding-left: 6em;
+        }
+
+        .ql-indent-4 {
+            padding-left: 8em;
+        }
+
+        .ql-align-center {
+            text-align: center;
+        }
+
+        .ql-align-right {
+            text-align: right;
+        }
+
+        /* 列表基础样式 */
+        ol,
+        ul {
+            padding-left: 1.5em;
+            margin: 0.5em 0;
+        }
+
+        li {
+            margin-bottom: 0.3em;
+        }
+    </style>
 </head>
+
 <body>
-
-<h3 style="text-align: center;">Account Opening Mandate</h3>
-<p>I, being an Authorised Person of the Applicant, confirm that (and, in case the Applicant is a company, unanimous resolutions have been passed after due deliberation (and are currently in full force and effect) that):</p>
-<p style="padding-left: 40px;">(a)it is for the commercial benefit and in the best interests and for the corporate purposes of the Applicant that the Applicant opens the Business Savings Account and applies for and uses the payment and funds transfer services provided by the Bank (the &ldquo;Payment Services&rdquo;);</p>
-<p style="padding-left: 40px;"><br />(b) the entry into and execution of the Business Banking Services Terms and Conditions and the relevant application forms (the &ldquo;Documents&rdquo;) specified by the Bank for opening the Business Savings Account and using the Payment Services and the performance by the Applicant of its obligations under the Documents are approved;</p>
-<p style="padding-left: 40px;"><br />(c)each of the persons identified as an "Account Operator" in the App be appointed an Authorised User who shall have the authority to (subject to any conditions, limits or other arrangement specified therein) operate the Business Savings Account and use the Payment Services and give instructions to the Bank for such purposes, acting singly, on behalf of and so as to bind the Applicant; and</p>
-<p style="padding-left: 40px;"><br />(d)each of the following matters shall be binding on the Applicant:</p>
-<p style="padding-left: 80px;">(i)any and all Documents, forms, agreements and other documents signed by any Authorised Signatory and any and all acts, transactions and matters effected by any Authorised Signatory, in accordance with the authority given to him/her/them from time to time and notified by the Applicant to the Bank in such form as the Bank may prescribe or accept; and</p>
-<p style="padding-left: 80px;">(ii)any and all forms, agreements and other documents accepted by the Authorised User(s) and any and all acts, transactions and matters effected by the Authorised User(s), in accordance with the authority given to him/her/them from time to time and notified by the Applicant to the Bank in such form as the Bank may prescribe or accept.</p>
-<p><br />Unless the context requires otherwise, capitalised terms used herein shall have the same meaning as those defined in the Business Banking Services Terms and Conditions.</p>
-
-<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5.1/build/highlight.min.js" type="text/javascript"></script>
-<script type="text/javascript">hljs.highlightAll();</script>
+    <h3 class="ql-align-center"><strong>Account&nbsp;Opening&nbsp;Mandate</strong></h3>
+    <p class="ql-align-justify">I, being&nbsp;an Authorised Person of the Applicant, confirm that (and, in case the
+        Applicant is a company, unanimous resolutions have been passed after due deliberation&nbsp;(and are currently in
+        full force and effect) that):</p>
+    <ul>
+        <li class="ql-align-justify">(a)&nbsp;it&nbsp;is for the commercial benefit and in the best interests and for
+            the corporate
+            purposes&nbsp;of&nbsp;the&nbsp;Applicant&nbsp;that&nbsp;the&nbsp;Applicant&nbsp;opens&nbsp;the&nbsp;Business&nbsp;Savings&nbsp;Account
+            and&nbsp;applies&nbsp;for&nbsp;and&nbsp;uses&nbsp;the&nbsp;payment&nbsp;and&nbsp;funds&nbsp;transfer&nbsp;services&nbsp;provided&nbsp;by&nbsp;the
+            Bank (the&nbsp;“Payment Services”);</li>
+        <li class="ql-align-justify">(b)&nbsp; the&nbsp;entry into&nbsp;and execution of&nbsp;the&nbsp;Business Banking
+            Services Terms and&nbsp;Conditions and&nbsp;the relevant application forms (the&nbsp;“Documents”) specified
+            by the Bank for opening the Business Savings Account and using the Payment Services and the performance by
+            the Applicant of its obligations under the Documents are approved;</li>
+        <li class="ql-align-justify">
+            (c)&nbsp;each&nbsp;of&nbsp;the&nbsp;persons&nbsp;identified&nbsp;as&nbsp;an&nbsp;"Account&nbsp;Operator"&nbsp;in&nbsp;the&nbsp;App&nbsp;be&nbsp;appointed
+            an Authorised User who shall have the authority to (subject to any conditions, limits or other arrangement
+            specified therein) operate the Business Savings
+            Account&nbsp;and&nbsp;use&nbsp;the&nbsp;Payment&nbsp;Services&nbsp;and&nbsp;give&nbsp;instructions&nbsp;to&nbsp;the&nbsp;Bank&nbsp;for&nbsp;such
+            purposes, acting singly, on behalf of and so as to bind the Applicant; and</li>
+        <li class="ql-align-justify">
+            (d)&nbsp;each&nbsp;of&nbsp;the&nbsp;following&nbsp;matters&nbsp;shall&nbsp;be&nbsp;binding&nbsp;on&nbsp;the&nbsp;Applicant:
+        </li>
+        <li class="ql-align-justify ql-indent-1">(i)&nbsp;any&nbsp;and all&nbsp;Documents,&nbsp;forms,
+            agreements&nbsp;and other documents&nbsp;signed by&nbsp;any Authorised Signatory&nbsp;and any&nbsp;and all
+            acts,&nbsp;transactions&nbsp;and matters&nbsp;effected by any Authorised Signatory, in accordance with the
+            authority given to
+            him/her/them&nbsp;from&nbsp;time&nbsp;to&nbsp;time&nbsp;and&nbsp;notified&nbsp;by&nbsp;the&nbsp;Applicant&nbsp;to&nbsp;the&nbsp;Bank&nbsp;in
+            such form as the Bank may prescribe or accept; and</li>
+        <li class="ql-align-justify ql-indent-1">(ii)&nbsp;any and all forms, agreements and other documents accepted by
+            the Authorised User(s) and any and all acts, transactions and matters effected by the Authorised User(s), in
+            accordance with the authority given to
+            him/her/them&nbsp;from&nbsp;time&nbsp;to&nbsp;time&nbsp;and&nbsp;notified by the&nbsp;Applicant
+            to&nbsp;the&nbsp;Bank in such form as the Bank may prescribe or accept.</li>
+    </ul>
+    <p class="ql-align-justify"><br></p>
+    <p><em>Unless&nbsp;the&nbsp;context&nbsp;requires&nbsp;otherwise,&nbsp;capitalised&nbsp;terms&nbsp;used&nbsp;herein&nbsp;shall&nbsp;have&nbsp;the&nbsp;same
+            meaning&nbsp;as&nbsp;those&nbsp;defined&nbsp;in&nbsp;the&nbsp;Business Banking
+            Services&nbsp;Terms&nbsp;and&nbsp;Conditions.</em></p>
+    <p><br></p>
 </body>
+
 </html>
