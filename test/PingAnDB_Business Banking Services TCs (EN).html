@@ -9,6 +9,7 @@
         .agreement {
             margin: 0 2em;
         }
+
         .header-center {
             text-align: center;
             font-weight: bold;
@@ -43,7 +44,10 @@
         .level-2,
         .level-3 {
             display: inline-block;
-            width: 2em;
+            min-width: 1.5em;
+            /* 给短序号一个基础宽度，保证稍微对齐 */
+            margin-right: 8px;
+            /* 核心！强制在序号右侧留出 8px 的安全距离 */
         }
 
         .level-3 {
@@ -57,7 +61,6 @@
     <div class="agreement">
         <h3 class="header-center">Ping An Digital Bank (International) Limited<br>Business Banking Services Terms and
             Conditions</h3>
-
 
         <p><span class="level-1">1.</span><b>Our accounts and services</b></p>
         <p><span class="level-2">1.1</span>Ping An Digital Bank (International) Limited (the “<b>Bank</b>”, “<b>we</b>”
@@ -602,7 +605,7 @@
             and Transfer Service and HKICL FPS, please read carefully the provisions in Clause 16 of these Terms and
             Conditions.</p>
         <p><span class="level-2">15.3</span>We have the right to do the following:</p>
-        <p><a name="_BPDC_PR_INS_1164"></a><span class="level-3">(a)</span><a name="_BPDC_LN_INS_1163"></a><a
+        <p><a name="_BPDC_LN_INS_1163"></a><span class="level-3">(a)</span><a name="_BPDC_PR_INS_1164"></a><a
                 name="_BPDCI_55">introduce, specify or vary the means through which you may make payment or remittance;
             </a></p>
         <p><a name="_BPDC_LN_INS_1161"></a><span class="level-3">(b)</span><a name="_BPDC_PR_INS_1162"></a><a
@@ -615,7 +618,7 @@
                 name="_BPDCI_58">determine the order of priority in executing your instruction for payment and transfer
                 funds and any other existing arrangements or instructions you may have made with or given to us;
                 and/or</a></p>
-        <p><a name="_BPDC_PR_INS_1156"></a><span class="level-3">(e)</span><a name="_BPDC_LN_INS_1155"></a><a
+        <p><a name="_BPDC_LN_INS_1155"></a><span class="level-3">(e)</span><a name="_BPDC_PR_INS_1156"></a><a
                 name="_BPDCI_59">effect any payment or remittance either in words or in code, and we are not responsible
                 for (i) any loss, delay, error, omission or alteration of the message which may occur in its
                 transmission, and (ii) any misinterpretation of the message by the recipient (or any of the above).</a>
@@ -637,7 +640,7 @@
             system or any other causes whatsoever.</p>
         <p><span class="level-2">15.6</span>To the extent permitted by law, we may, but are not obliged to, inform you
             of the following matters (or any of them). You should make your own enquiries about them:</p>
-        <p><a name="_BPDC_PR_INS_1154"></a><span class="level-3">(a)</span><a name="_BPDC_LN_INS_1153"></a>any exchange
+        <p><a name="_BPDC_LN_INS_1153"></a><span class="level-3">(a)</span><a name="_BPDC_PR_INS_1154"></a>any exchange
             control or restriction that may be imposed by applicable laws and regulations. We are not liable for any
             loss or delay to you arising from or in connection with such control or restriction; and</p>
         <p><a name="_BPDC_LN_INS_1151"></a><span class="level-3">(b)</span><a name="_BPDC_PR_INS_1152"></a>any charges
@@ -697,15 +700,15 @@
             or Black Rainstorm Warning Signal is hoisted, they may be processed only on the next clearing day. </p>
         <p><a name="_BPDCI_84"></a><span class="level-2">15.15</span>An instruction for payment from your accounts may
             be subject to the following:</p>
-        <p><a name="_BPDC_PR_INS_1150"></a><span class="level-3">(a)</span><a name="_BPDC_LN_INS_1149"></a>the cut-off
+        <p><a name="_BPDC_LN_INS_1149"></a><span class="level-3">(a)</span><a name="_BPDC_PR_INS_1150"></a>the cut-off
             time that we may specify from time to time, and the cut-off time of the place where payment is to be
             received; </p>
         <p><a name="_BPDC_PR_INS_1148"></a><span class="level-3">(b)</span><a name="_BPDC_LN_INS_1147"></a>the funding
             arrangement requirements of the settlement banks;</p>
-        <p><a name="_BPDC_LN_INS_1145"></a><span class="level-3">(c)</span><a name="_BPDC_PR_INS_1146"></a>the
+        <p><a name="_BPDC_PR_INS_1146"></a><span class="level-3">(c)</span><a name="_BPDC_LN_INS_1145"></a>the
             availability of the relevant services. This may include the availability of the clearing system of the
             applicable currency or the location of the correspondent or beneficiary bank; and/or</p>
-        <p><a name="_BPDC_LN_INS_1143"></a><span class="level-3">(d)</span><a name="_BPDC_PR_INS_1144"></a>our
+        <p><a name="_BPDC_PR_INS_1144"></a><span class="level-3">(d)</span><a name="_BPDC_LN_INS_1143"></a>our
             compliance with all applicable laws and regulations, including but not limited to any anti-money laundering
             requirements, and you hereby expressly authorise (i) us to make any required disclosure to any correspondent
             or beneficiary bank, the payee or any authority as we may be required to make under applicable laws and
@@ -1031,32 +1034,32 @@
             these Terms and Conditions above), you confirm that you will obtain and have obtained the consent from such
             person regarding the use (including disclosure and transfer) of his/her personal data and other information
             by HKICL, us and the other Participants as specified in this Clause 16.</p>
-        <p><a name="_BPDC_PR_INS_1106"></a><a name="_BPDC_LN_INS_1125"></a><a name="_BPDC_PR_INS_1058"></a><a
-                name="_BPDC_LN_INS_1055"></a><a name="_BPDC_PR_INS_1110"></a><a name="_BPDC_LN_INS_1053"></a><a
-                name="_BPDC_LN_INS_1117"></a><a name="_BPDC_LN_INS_1107"></a><a name="_BPDC_PR_INS_1094"></a><a
-                name="_BPDC_PR_INS_1086"></a><a name="_BPDC_PR_INS_1080"></a><a name="_BPDC_PR_INS_1120"></a><a
-                name="_BPDC_LN_INS_1093"></a><a name="_BPDC_LN_INS_1089"></a><a name="_BPDC_PR_INS_1056"></a><a
-                name="_BPDC_LN_INS_1073"></a><a name="_BPDC_LN_INS_1101"></a><a name="_BPDC_PR_INS_1076"></a><a
-                name="_BPDC_LN_INS_1105"></a><a name="_BPDC_LN_INS_1085"></a><a name="_BPDC_PR_INS_1052"></a><a
-                name="_BPDC_PR_INS_1108"></a><a name="_BPDC_PR_INS_1066"></a><a name="_BPDC_LN_INS_1113"></a><a
-                name="_BPDC_LN_INS_1109"></a><a name="_BPDC_LN_INS_1097"></a><a name="_BPDC_LN_INS_1119"></a><a
-                name="_BPDC_LN_INS_1099"></a><a name="_BPDC_LN_INS_1111"></a><a name="_BPDC_LN_INS_1049"></a><a
-                name="_BPDC_PR_INS_1070"></a><a name="_BPDC_LN_INS_1051"></a><a name="_BPDC_PR_INS_1118"></a><a
-                name="_BPDC_PR_INS_1114"></a><a name="_BPDC_LN_INS_1065"></a><a name="_BPDC_PR_INS_1126"></a><a
-                name="_BPDC_PR_INS_1078"></a><a name="_BPDC_LN_INS_1063"></a><a name="_BPDC_PR_INS_1092"></a><a
-                name="_BPDC_PR_INS_1060"></a><a name="_BPDC_PR_INS_1090"></a><a name="_BPDC_LN_INS_1095"></a><a
-                name="_BPDC_LN_INS_1081"></a><a name="_BPDC_PR_INS_1088"></a><a name="_BPDC_LN_INS_1059"></a><a
-                name="_BPDC_LN_INS_1091"></a><a name="_BPDC_PR_INS_1112"></a><a name="_BPDC_LN_INS_1057"></a><a
-                name="_BPDC_LN_INS_1123"></a><a name="_BPDC_PR_INS_1068"></a><a name="_BPDC_PR_INS_1124"></a><a
-                name="_BPDC_LN_INS_1067"></a><a name="_BPDC_LN_INS_1069"></a><a name="_BPDC_PR_INS_1100"></a><a
-                name="_BPDC_LN_INS_1077"></a><a name="_BPDC_PR_INS_1072"></a><a name="_BPDC_LN_INS_1061"></a><a
-                name="_BPDC_LN_INS_1075"></a><a name="_BPDC_LN_INS_1083"></a><a name="_BPDC_PR_INS_1054"></a><a
-                name="_BPDC_PR_INS_1116"></a><a name="_BPDC_PR_INS_1064"></a><a name="_BPDC_LN_INS_1115"></a><a
-                name="_BPDC_LN_INS_1071"></a><a name="_BPDC_PR_INS_1102"></a><a name="_BPDC_PR_INS_1082"></a><a
-                name="_BPDC_PR_INS_1074"></a><a name="_BPDC_PR_INS_1104"></a><a name="_BPDC_LN_INS_1087"></a><a
-                name="_BPDC_PR_INS_1050"></a><a name="_BPDC_PR_INS_1122"></a><a name="_BPDC_PR_INS_1098"></a><a
-                name="_BPDC_LN_INS_1079"></a><a name="_BPDC_PR_INS_1062"></a><a name="_BPDC_LN_INS_1121"></a><a
-                name="_BPDC_PR_INS_1084"></a><a name="_BPDC_LN_INS_1103"></a><a name="_BPDC_PR_INS_1096"></a> </p>
+        <p><a name="_BPDC_PR_INS_1060"></a><a name="_BPDC_PR_INS_1064"></a><a name="_BPDC_LN_INS_1057"></a><a
+                name="_BPDC_LN_INS_1067"></a><a name="_BPDC_PR_INS_1058"></a><a name="_BPDC_PR_INS_1070"></a><a
+                name="_BPDC_LN_INS_1071"></a><a name="_BPDC_PR_INS_1072"></a><a name="_BPDC_PR_INS_1074"></a><a
+                name="_BPDC_LN_INS_1073"></a><a name="_BPDC_PR_INS_1078"></a><a name="_BPDC_LN_INS_1059"></a><a
+                name="_BPDC_PR_INS_1066"></a><a name="_BPDC_PR_INS_1062"></a><a name="_BPDC_LN_INS_1075"></a><a
+                name="_BPDC_LN_INS_1065"></a><a name="_BPDC_PR_INS_1076"></a><a name="_BPDC_LN_INS_1063"></a><a
+                name="_BPDC_LN_INS_1077"></a><a name="_BPDC_LN_INS_1061"></a><a name="_BPDC_PR_INS_1068"></a><a
+                name="_BPDC_LN_INS_1069"></a><a name="_BPDC_LN_INS_1121"></a><a name="_BPDC_PR_INS_1124"></a><a
+                name="_BPDC_PR_INS_1050"></a><a name="_BPDC_LN_INS_1117"></a><a name="_BPDC_PR_INS_1122"></a><a
+                name="_BPDC_LN_INS_1051"></a><a name="_BPDC_LN_INS_1111"></a><a name="_BPDC_PR_INS_1126"></a><a
+                name="_BPDC_PR_INS_1114"></a><a name="_BPDC_LN_INS_1113"></a><a name="_BPDC_LN_INS_1115"></a><a
+                name="_BPDC_LN_INS_1123"></a><a name="_BPDC_LN_INS_1119"></a><a name="_BPDC_PR_INS_1120"></a><a
+                name="_BPDC_LN_INS_1049"></a><a name="_BPDC_PR_INS_1118"></a><a name="_BPDC_LN_INS_1055"></a><a
+                name="_BPDC_LN_INS_1125"></a><a name="_BPDC_PR_INS_1054"></a><a name="_BPDC_LN_INS_1053"></a><a
+                name="_BPDC_PR_INS_1052"></a><a name="_BPDC_PR_INS_1056"></a><a name="_BPDC_PR_INS_1116"></a><a
+                name="_BPDC_LN_INS_1109"></a><a name="_BPDC_PR_INS_1090"></a><a name="_BPDC_PR_INS_1094"></a><a
+                name="_BPDC_PR_INS_1110"></a><a name="_BPDC_LN_INS_1105"></a><a name="_BPDC_LN_INS_1097"></a><a
+                name="_BPDC_PR_INS_1112"></a><a name="_BPDC_LN_INS_1081"></a><a name="_BPDC_LN_INS_1089"></a><a
+                name="_BPDC_LN_INS_1093"></a><a name="_BPDC_LN_INS_1087"></a><a name="_BPDC_LN_INS_1079"></a><a
+                name="_BPDC_PR_INS_1100"></a><a name="_BPDC_PR_INS_1084"></a><a name="_BPDC_LN_INS_1099"></a><a
+                name="_BPDC_PR_INS_1080"></a><a name="_BPDC_PR_INS_1092"></a><a name="_BPDC_PR_INS_1108"></a><a
+                name="_BPDC_LN_INS_1085"></a><a name="_BPDC_PR_INS_1096"></a><a name="_BPDC_PR_INS_1106"></a><a
+                name="_BPDC_PR_INS_1098"></a><a name="_BPDC_LN_INS_1095"></a><a name="_BPDC_PR_INS_1104"></a><a
+                name="_BPDC_LN_INS_1107"></a><a name="_BPDC_LN_INS_1103"></a><a name="_BPDC_LN_INS_1083"></a><a
+                name="_BPDC_PR_INS_1082"></a><a name="_BPDC_PR_INS_1086"></a><a name="_BPDC_LN_INS_1101"></a><a
+                name="_BPDC_LN_INS_1091"></a><a name="_BPDC_PR_INS_1102"></a><a name="_BPDC_PR_INS_1088"></a> </p>
         <p><b>16A. FX Services</b></p>
         <p>General</p>
         <p>16A.1 This Clause 16A sets out the terms and conditions under which we agree to provide you with the "FX
@@ -1306,14 +1309,14 @@
             material adverse effect on the tax, legal or regulatory requirements that may be applicable to us;</p>
         <p><a name="_BPDCI_165"></a><span class="level-3">(b)</span>you or your Authorised Person have breached your
             obligations under these Terms and Conditions<a name="_BPDCI_167"></a>;</p>
-        <p><a name="_BPDC_PR_INS_1044"></a><span class="level-3">(c)</span><a name="_BPDC_LN_INS_1043"></a><a
+        <p><a name="_BPDC_LN_INS_1043"></a><span class="level-3">(c)</span><a name="_BPDC_PR_INS_1044"></a><a
                 name="_BPDCI_168">you or your Authorised Person have breached or failed to observe any applicable laws
                 and regulations;</a></p>
         <p><a name="_BPDC_LN_INS_1041"></a><span class="level-3">(d)</span><a name="_BPDC_PR_INS_1042"></a>any
             confirmation given by you under these Terms and Conditions proves to be false or misleading in any material
             respect at any time it was given;</p>
         <p><a name="_BPDC_PR_INS_1040"></a><a name="_BPDC_LN_INS_1039"></a> </p>
-        <p><a name="_BPDC_LN_INS_1037"></a><span class="level-3">(e)</span><a name="_BPDC_PR_INS_1038"></a>you become
+        <p><a name="_BPDC_PR_INS_1038"></a><span class="level-3">(e)</span><a name="_BPDC_LN_INS_1037"></a>you become
             the subject of any corporate action, legal proceedings or other step in relation to:</p>
         <p><span class="level-3">(i)</span>suspension of payments, moratorium of indebtedness, bankruptcy, winding up,
             dissolution, administration and reorganization (other than a solvent liquidation or reorganization) or
@@ -1323,15 +1326,15 @@
         <p><span class="level-3">(iii)</span>expropriation, attachment, sequestration, distress or execution affecting
             any of your assets or the enforcement of any security over your assets; or</p>
         <p><span class="level-3">(iv)</span>any analogous procedure or step in any jurisdiction;</p>
-        <p><a name="_BPDC_PR_INS_1036"></a><a name="_BPDC_LN_INS_1033"></a><a name="_BPDC_PR_INS_1032"></a><a
-                name="_BPDC_PR_INS_1034"></a><a name="_BPDC_LN_INS_1031"></a><a name="_BPDC_LN_INS_1035"></a><a
-                name="_BPDCI_170"></a><a name="_BPDCI_173"></a> </p>
-        <p><a name="_BPDC_PR_INS_1030"></a><span class="level-3">(f)</span><a name="_BPDC_LN_INS_1029"></a>any action or
+        <p><a name="_BPDC_LN_INS_1035"></a><a name="_BPDC_LN_INS_1031"></a><a name="_BPDC_LN_INS_1033"></a><a
+                name="_BPDC_PR_INS_1036"></a><a name="_BPDC_PR_INS_1034"></a><a name="_BPDCI_170"></a><a
+                name="_BPDC_PR_INS_1032"></a><a name="_BPDCI_173"></a> </p>
+        <p><a name="_BPDC_LN_INS_1029"></a><span class="level-3">(f)</span><a name="_BPDC_PR_INS_1030"></a>any action or
             procedure is commenced against you or your assets in the nature specified in Clause 20.3(e) above, or for
             execution, distress, attachment, or garnishment against your assets or for an encumbrancer to take
             possession of your assets;</p>
-        <p><a name="_BPDC_PR_INS_1028"></a><span class="level-3">(g)</span><a name="_BPDCI_175"></a><a
-                name="_BPDC_LN_INS_1027"></a><a name="_BPDCI_174">your </a><a name="_BPDCI_176"></a>account is being
+        <p><a name="_BPDC_LN_INS_1027"></a><span class="level-3">(g)</span><a name="_BPDCI_175"></a><a
+                name="_BPDC_PR_INS_1028"></a><a name="_BPDCI_174">your </a><a name="_BPDCI_176"></a>account is being
             used or is suspected of being used for illegal activities<a name="_BPDCI_177"></a>;</p>
         <p><a name="_BPDC_LN_INS_1025"></a><span class="level-3">(h)</span><a name="_BPDC_PR_INS_1026"></a><a
                 name="_BPDCI_178">(without reducing the effect of any indemnity given by you under these Terms and
@@ -1439,20 +1442,20 @@
         <p><a name="_BPDCI_185"></a><span class="level-3">(a)</span>the operation of the United States Dollar Clearing
             System will be subject to the United States Dollar Clearing House Rules and the United States Dollar
             Operating Procedures; and</p>
-        <p><a name="_BPDC_LN_INS_1017"></a><span class="level-3">(b)</span><a name="_BPDC_PR_INS_1018"></a><a
+        <p><a name="_BPDC_PR_INS_1018"></a><span class="level-3">(b)</span><a name="_BPDC_LN_INS_1017"></a><a
                 name="_BPDCI_186">the Hong Kong Monetary Authority does not owe any duty or incur any liability to you
                 or any other person in respect of any claim, loss, damage or expense of any kind or nature (including
                 loss of business or business opportunity, loss of profit, or special, indirect or consequential loss
                 arising in any manner directly or indirectly from the following (or any of them), even if the Hong Kong
                 Monetary Authority knew or ought reasonably to have known the possibility of loss:</a></p>
-        <p><a name="_BPDC_PR_INS_1016"></a><span class="level-3">(i)</span><a name="_BPDC_LN_INS_1015"></a><a
+        <p><a name="_BPDC_LN_INS_1015"></a><span class="level-3">(i)</span><a name="_BPDC_PR_INS_1016"></a><a
                 name="_BPDCI_187">anything done or not done by the Hong Kong Monetary Authority honestly in good faith
                 or by the settlement institution of the United States Dollar Clearing System, HKICL, or any member of
                 the United States Dollar Clearing House in the management, operation or use of the United States Dollar
                 Clearing House or the United States Dollar clearing facilities (or any part of them). That may include
                 the termination or suspension of the settlement institution, the United States Dollar clearing
                 facilities or any such member of the United States Dollar Clearing House;</a></p>
-        <p><a name="_BPDC_PR_INS_1014"></a><span class="level-3">(ii)</span><a name="_BPDC_LN_INS_1013"></a><a
+        <p><a name="_BPDC_LN_INS_1013"></a><span class="level-3">(ii)</span><a name="_BPDC_PR_INS_1014"></a><a
                 name="_BPDCI_188">without limiting or reducing the effect of the paragraph above, the giving of any
                 notice, advice or approval in relation to the United States Dollar Clearing House Rules and the United
                 States Dollar Operating Procedures. </a></p>
